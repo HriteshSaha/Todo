@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List of all todo</title>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <ul>
+    <% todos.forEach((todo)=> {%>
+      <li>
+        <%= todo.id%>.    <%= todo.name %>: <%= todo.workDetails%>
+        <input type="checkbox" name="" id="">
+        <button type="submit">Delete</button>
+      </li>
+    <% }) %> 
+  </ul>
+  <a href="http://localhost:3000/todo" style="text-decoration: none;">Add todo</a>
+</body>
+</html>
