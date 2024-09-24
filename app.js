@@ -2,14 +2,14 @@ const express = require('express')
 const homepage = require('./routes/homePage_route.js')
 const todoForm = require('./routes/todo_route.js')
 const showAllTodos = require('./routes/showAllTodos_route.js')
-// const methodOverride = require('method-override')
+const methodOverride = require('method-override')
 
 const app = express()
 const port  = 3000
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 
 app.use('/', homepage)
 app.use('/', todoForm)
