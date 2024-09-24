@@ -13,7 +13,7 @@
         <%= todo.id %>. <%= todo.name %>: <%= todo.workDetails %>
 
         <form action="/todo/updateStatus/<%= todo.id %>" method="POST" style="margin-left: 10px;">
-          <input type="hidden" name="isDone" value="false"> <!-- Default value for unchecked -->
+          <input type="hidden" name="isDone" value="false"> 
           <input type="checkbox" name="isDone" value="true" <% if (todo.isDone) { %>checked<% } %> 
             onchange="this.form.submit();">
         </form>
