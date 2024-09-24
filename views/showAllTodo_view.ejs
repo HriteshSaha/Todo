@@ -9,11 +9,17 @@
   <h1>Todo List</h1>
   <ul>
     <% todos.forEach((todo)=> {%>
-      <li>
+      <li style="display: flex; align-items: center;">
         <%= todo.id%>.    <%= todo.name %>: <%= todo.workDetails%>
         <input type="checkbox" name="" id="">
-        <button type="submit">Delete</button>
+        
+        <a href="/todo/delete/:<%= todo.id%>">Delete</a>
+        <!-- <form action="/todo/delete/<%= todo.id%>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" style="background-color: #ec5656;">Delete</button>
+        </form> -->
       </li>
+      <hr>
     <% }) %> 
   </ul>
   <a href="http://localhost:3000/todo" style="text-decoration: none;">Add todo</a>
