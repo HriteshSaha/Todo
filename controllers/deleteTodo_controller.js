@@ -4,7 +4,7 @@ module.exports = async (req, res) => {
   try {
   const todoId = req.params.id
 
-  await todoList.destroy({
+  const deletedCount = await todoList.destroy({
     where: { id: todoId }
   });
 
@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     return res.status(404).send('Todo not found');
   }
 
-  res.redirect('/showAllTodos')
+  res.redirect('/todo/showAllTodos')
   } catch (error) {
     console.error(error)
     res.status(500).send('server error while deleting')

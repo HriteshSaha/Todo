@@ -3,6 +3,7 @@ const homepage = require('./routes/homePage_route.js')
 const todoForm = require('./routes/todo_route.js')
 const showAllTodos = require('./routes/showAllTodos_route.js')
 const methodOverride = require('method-override')
+const deleteTodo = require('./routes/deleteTodo_route.js')
 
 const app = express()
 const port  = 3000
@@ -14,6 +15,7 @@ app.use(methodOverride('_method'))
 app.use('/', homepage)
 app.use('/', todoForm)
 app.use('/todo', showAllTodos)
+app.use('/todo',deleteTodo)
 
 
 

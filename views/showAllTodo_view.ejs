@@ -12,14 +12,16 @@
       <li style="display: flex; align-items: center;">
         <%= todo.id %>. <%= todo.name %>: <%= todo.workDetails %>
 
+        <!-- Checkbox -->
         <form action="/todo/updateStatus/<%= todo.id %>" method="POST" style="margin-left: 10px;">
           <input type="hidden" name="isDone" value="false"> 
           <input type="checkbox" name="isDone" value="true" <% if (todo.isDone) { %>checked<% } %> 
             onchange="this.form.submit();">
         </form>
 
-        <form action="/todo/delete/<%= todo.id %>" method="POST" style="margin-left: 10px;">
-          <button type="submit" style="background-color: #ec5656; color: white; border: none; cursor: pointer;">Delete</button>
+        <!-- Delete Button -->
+        <form action="/todo/delete/<%= todo.id %>" method="POST">
+          <button type="submit" >Delete</button>
         </form>
       </li>
       <hr>
