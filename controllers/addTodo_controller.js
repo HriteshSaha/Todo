@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
     workDetails
   })
 
-  res.redirect(301, './todo/showAllTodos')  
+  res.redirect(301, '/todo/showAllTodos')  
   
   } catch(error){
     console.error('Error occurred during insertion:', error);

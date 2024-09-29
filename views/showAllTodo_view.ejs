@@ -12,11 +12,8 @@
       <li style="display: flex; align-items: center;">
         <%= todo.id %>. <%= todo.name %>: <%= todo.workDetails %>
 
-        <!-- Checkbox -->
-        <form action="/todo/updateStatus/<%= todo.id %>" method="POST" style="margin-left: 10px;">
-          <input type="hidden" name="isDone" value="false"> 
-          <input type="checkbox" name="isDone" value="true" <% if (todo.isDone) { %>checked<% } %> 
-            onchange="this.form.submit();">
+        <form action="/todo/updateStatus/<%= todo.id %>" method="POST">
+          <button type="submit"> <% if(todo.isDone === false){%>Pending <%}else{%>Completed<%}%></button>
         </form>
 
         <!-- Delete Button -->

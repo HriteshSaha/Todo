@@ -1,3 +1,3 @@
 module.exports = (req, res)=>{
-    res.render('homepage_view', {message:"Home Page"})
+    res.render('homePage_view', {message:"Home Page"})
 }

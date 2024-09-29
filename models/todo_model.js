@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: true,
+    });
+
+    // Defining Associations
+    todoList.associate = (models) => {
+      todoList.belongsTo(models.user, {foreignKey: 'userId', as: 'user'})
     }
-  );
   return todoList;
 };
