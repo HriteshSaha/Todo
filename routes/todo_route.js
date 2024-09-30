@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const todoForm = require('../controllers/todoForm_controller.js')
 const addTodo = require('../controllers/addTodo_controller.js')
+const authMiddleware = require('../middlewares/authenticationMiddleware.js') 
 
-router.get('/todo', todoForm)
-router.post('/todo', addTodo)
+router.get('/todo', authMiddleware, todoForm)
+router.post('/todo', authMiddleware, addTodo)
 
 module.exports = router

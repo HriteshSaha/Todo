@@ -17,9 +17,10 @@ app.use(express.json());
 app.use(methodOverride('_method'))
 app.use(session({
     secret: 'This_is_a_secret_key_@123',
+     name: 'abc.io',
     resave: false,
-    saveUninitialized: true,
-    cookie: {secure: false}
+    saveUninitialized: false,
+    cookie: {secure: false, maxAge: 24 * 60 * 60 * 1000}
 }))
 
 app.use('/', homepage)

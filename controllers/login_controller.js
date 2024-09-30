@@ -12,12 +12,14 @@ const userLogin = async (req, res)=> {
     const existingUser = await user.findOne({where:{email}})
 
     if(!existingUser){
-      return res.status(400).json({message:'Wrong username or password'})
+      // return res.status(400).json({message:'Wrong username or password'})
+      return res.redirect('./login')
     }
 
     const checkPassword = await bcrypt.compare(password, existingUser.password)
     if(!checkPassword){
-      return res.status(400).json({message:'Wrong username or password'})
+      // return res.status(400).json({message:'Wrong username or password'})
+      return res.redirect('./login')
     }
 
     req.session.user = {
@@ -26,7 +28,8 @@ const userLogin = async (req, res)=> {
       firstName: existingUser.firstName
     }
 
-    return res.status(200).json({message: 'Login Successful'})
+    return res.redirect('/todo/showAllTodos')
+    // return res.status(200).json({message: 'Login Successful'})
 
   } catch (error) {
     res.status(500).json({ message: 'Error logging in', error });

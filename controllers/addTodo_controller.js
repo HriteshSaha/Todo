@@ -4,10 +4,15 @@ module.exports = async (req, res) => {
 
   const {name, workDetails} = req.body
 
+  if (!req.session.user || !req.session.user.id) {
+    return res.status(401).json({ message: 'User not authenticated' });
+  }
+
   try{
     const TodoItem = await todoList.create({
     name,
-    workDetails
+    workDetails,
+    userId: req.session.user.id
   })
 
   res.redirect(301, '/todo/showAllTodos')  
